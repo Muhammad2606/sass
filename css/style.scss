@@ -1,0 +1,154 @@
+@import './_global';
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&family=Raleway:ital,wght@0,200;0,300;1,100&family=Roboto+Mono:ital,wght@0,200;1,100&family=Roboto:ital,wght@1,300;1,500&display=swap');
+
+ :root{
+
+    --open : 'Open Sans', sans-serif;
+    --real : 'Raleway', sans-serif;
+    --roboto : 'Roboto', sans-serif;
+    --mono : 'Roboto Mono', monospace;
+
+ }
+ @mixin card(){
+    width: 100%;
+    padding: 4rem 0;
+ }
+
+ @mixin grid ($repeat){
+    display: grid;
+    grid-template-columns: $repeat;
+    gap: 3rem;
+ }
+
+ @mixin title (){
+    text-align: center;
+    margin-bottom: 1rem;
+ }
+ @mixin btn ($bgc,$first,$bgchover,$color){
+    padding: 7px 15px;
+    background-color: $bgc;
+    color: $first;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    border: 0;
+    transition: all 0.5s ease;
+    &:hover{
+        background-color: $bgchover;
+        color: $color;
+    }
+ }
+ 
+ .header    
+ {
+    width: 100%;
+    padding-top: 20px;
+    background-image: url(/img/banner-bg.png);
+    background-size: cover;
+ }
+ .navigation    
+ {
+    width: 100%;
+    height: 10vh;
+    background-color: #fff;
+
+    .navbar{
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .navbar__nav {
+            a{
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 1.4rem;
+                font-family: var(--open);
+                transition: all 0.5s linear;
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+        }
+        .navbar__icon {
+            i{
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 1.4rem;
+                transition: all 0.5s linear;
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+ }
+
+ .banner{
+    width: 100%;
+    height: 100%;
+    .banner__contant{
+        @include grid(repeat(2,1fr));
+        align-items: center;
+        h1{
+            font-size: 4rem;
+            font-family: var(--roboto);
+            color: #fff;
+            }
+            p{
+                margin-bottom: 1rem;
+                color: #fff;
+                opacity: 0.7;
+            }
+            button{
+                margin-right: 16px;
+                &:first-of-type{
+                    @include btn(rgb(240, 240, 9),black , black,yellow )
+                }
+                &:last-of-type{
+                    @include btn(rgb(0, 0, 0),yellow , yellow,black )
+        }
+      }
+    }
+ }
+
+
+ .courses{
+    @include card();
+    .title{
+        @include title();
+        h2{
+            font-size: 2rem;
+            span{
+                color: rgb(28, 110, 181);
+            }
+        }
+    }
+
+ }
+
+ .courses__content{
+    @include grid(repeat(2,1fr));
+
+    .img{
+        position: relative;
+        cursor: pointer;
+        .img__hover{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.8);
+            top: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: all 0.4s ease;
+            font-family: var(--real);
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+ }
